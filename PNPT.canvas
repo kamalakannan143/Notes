@@ -1,0 +1,17 @@
+{
+	"nodes":[
+		{"type":"text","text":"OSINT: thepastamentors.com","id":"ef9ec587b735cd38","x":80,"y":-225,"width":300,"height":65,"color":"2"},
+		{"type":"text","text":"External Pentest IP:10.10.155.0/24  \nUp: 10.10.155.5\nweb admin mail ","id":"cf58fbed273fae20","x":-280,"y":-80,"width":320,"height":160,"color":"2"},
+		{"type":"text","text":"Round Cube mail login Login Page. Still pending \nleo@thepastamentors.com\ninfo@thpastamentors.com","id":"eb0c4f7f2e4a3782","x":-700,"y":-40,"width":320,"height":100},
+		{"type":"text","text":"","id":"068d61a3346ffef5","x":-760,"y":-320,"width":250,"height":50},
+		{"type":"text","text":"Recon:\nhttps://10.10.155.5/mail/\n* It was a web mail server only. able to login with user id's\nMachine info:\n\tMail transfer protocol\n\tHTTP 80, 443\n\tSSH on 22\nPHP written language\n\nOnce you penetrate in to the user machine only you can access internal env. then will proceed with External Pentest. IP of the machine set as 10.10.10.0/24","id":"1c572cc5e30c439f","x":-460,"y":140,"width":600,"height":380},
+		{"type":"text","text":"Directory path traversal using gobuster and the wordlist\nhttps://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/Web-Content/Roundcube-123.txthttps://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/Web-Content/Roundcube-123.txt\n\n```bash\nsudo gobuster dir -u https://10.10.155.5/mail/ -w ../../Wordlist/Roundcube-123.txt -t 10 -k\n\n```","id":"57e43bb4f3ecf29d","x":-1400,"y":-120,"width":445,"height":200}
+	],
+	"edges":[
+		{"id":"bf458e4849318760","fromNode":"cf58fbed273fae20","fromSide":"bottom","toNode":"1c572cc5e30c439f","toSide":"top"},
+		{"id":"07bc97b1523709da","fromNode":"cf58fbed273fae20","fromSide":"right","toNode":"ef9ec587b735cd38","toSide":"bottom","fromEnd":"arrow"},
+		{"id":"4ff1ce5ab0a8178f","fromNode":"cf58fbed273fae20","fromSide":"left","toNode":"eb0c4f7f2e4a3782","toSide":"bottom"},
+		{"id":"adcac5eae265f7ef","fromNode":"eb0c4f7f2e4a3782","fromSide":"top","toNode":"068d61a3346ffef5","toSide":"right","label":"exploit-CVE-2016-9920\nif it was version <=1.2.2"},
+		{"id":"be92cf22af2207a2","fromNode":"eb0c4f7f2e4a3782","fromSide":"left","toNode":"57e43bb4f3ecf29d","toSide":"right"}
+	]
+}
